@@ -21,7 +21,7 @@ do_configure() {
                 -fPIC \
                 ${EXTRA_CONF}
 }
-do_configure_append() {
+do_configure:append() {
     # Make sure to turn off GCC stack-protector.
     sed -i'' -re 's/NATIVECCCOMPOPTS=(.*)/NATIVECCCOMPOPTS=\1 -fno-stack-protector/' config/Makefile
     sed -i'' -re 's/BYTECCCOMPOPTS=(.*)/BYTECCCOMPOPTS=\1 -fno-stack-protector/' config/Makefile

@@ -1,7 +1,7 @@
-DEPENDS_append_class-native = " \
+DEPENDS:append:class-native = " \
     findlib-native \
 "
-DEPENDS_append_class-target = " \
+DEPENDS:append:class-target = " \
     findlib-native \
     virtual/${TARGET_PREFIX}ocamlfind-meta \
 "
@@ -46,6 +46,6 @@ do_amend_findlib_conf() {
 }
 do_prepare_recipe_sysroot[postfuncs] += "do_amend_findlib_conf"
 
-do_install_prepend() {
+do_install:prepend() {
     install -d ${D}${sitelibdir}
 }

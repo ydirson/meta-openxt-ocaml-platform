@@ -25,11 +25,11 @@ PN = "ocaml-cross-${TARGET_ARCH}"
 # Restrict support from i.86|x86_64.*-linux -> i.86[|x86_64]
 COMPATIBLE_HOST = "(i.86|x86_64).*-linux"
 COMPATIBLE_MACHINE = "(-)"
-COMPATIBLE_MACHINE_x86 = "(.*)"
-COMPATIBLE_MACHINE_x86-64 = "(.*)"
+COMPATIBLE_MACHINE:x86 = "(.*)"
+COMPATIBLE_MACHINE:x86-64 = "(.*)"
 
 # Speed things up since we assume host is of the same architecture.
-do_configure_x86() {
+do_configure:x86() {
     ./configure -no-curses \
                 -no-graph \
                 -no-debugger \
@@ -47,7 +47,7 @@ do_configure_x86() {
                 ${EXTRA_CONF}
 }
 
-do_configure_x86-64() {
+do_configure:x86-64() {
     ./configure -no-curses \
                 -no-graph \
                 -no-debugger \
@@ -69,7 +69,7 @@ do_compile() {
     oe_runmake OCAMLLIB="${STAGING_LIBDIR_NATIVE}/ocaml" cross-opt
 }
 
-do_install_append() {
+do_install:append() {
     rm "${D}${bindir}/ocamlrun"
 }
 
