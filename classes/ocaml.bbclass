@@ -22,10 +22,10 @@ OCAMLOPT:class-target="ocamlopt -cc '${CC} -fPIC'"
 OCAMLMKLIB:class-target="ocamlmklib -ldopt '--sysroot=${STAGING_DIR_TARGET} ${LDFLAGS}'"
 
 # Override Makefile variables with oe_runmake.
-EXTRA_OEMAKE:append += ' \
+EXTRA_OEMAKE:append = ' \
     OCAMLMKLIB="${OCAMLMKLIB}" \
 '
-EXTRA_OEMAKE:append:class-target += ' \
+EXTRA_OEMAKE:append:class-target = ' \
     OCAMLC="${OCAMLC}" \
     OCAMLOPT="${OCAMLOPT}" \
 '
