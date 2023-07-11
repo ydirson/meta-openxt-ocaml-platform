@@ -12,6 +12,10 @@ S = "${WORKDIR}/findlib-${PV}"
 
 inherit ocaml
 
+DEPENDS:append = " \
+    m4-native \
+"
+
 do_configure() {
     ./configure \
         -bindir ${bindir} \
