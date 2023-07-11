@@ -4,6 +4,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=4f72f33f302a53dc329f4d3819fe14f9"
 
 SRC_URI = " \
     http://caml.inria.fr/pub/distrib/ocaml-4.04/ocaml-${PV}.tar.xz \
+    file://fix-gcc10.patch \
     file://oe-linux-configure.patch \
     file://shebang-use-env.patch \
 "
