@@ -2,6 +2,7 @@ require ocaml-4.04.inc
 
 SRC_URI += " \
     file://0001-cross-Add-cross-compilation-rules.patch \
+    file://HACK-disable-HAS_STACK_OVERFLOW_DETECTION.patch \
 "
 
 DEPENDS += " \
