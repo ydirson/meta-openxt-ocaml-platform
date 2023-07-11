@@ -49,6 +49,10 @@ do_configure:x86() {
 }
 
 do_configure:x86-64() {
+    # FIXME: configure attempts to execute cross binaries... with this ld.so
+    # try: sudo ln -s /lib64/ld-linux-x86-64.so.2 /lib
+    test -r /lib/ld-linux-x86-64.so.2
+
     ./configure -no-curses \
                 -no-graph \
                 -no-debugger \
