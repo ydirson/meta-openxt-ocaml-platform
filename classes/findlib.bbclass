@@ -35,7 +35,7 @@ FILES_${PN}-dbg = " \
 
 do_amend_findlib_conf() {
     sed -i \
-        -e 's|^destdir=.*|destdir="${D}${sitelibdir}"|' \
+        -e 's|^destdir=.*|destdir="${sitelibdir}"|' \
         -e 's|^path=.*|path="${OCAMLLIB}/site-lib:${STAGING_LIBDIR}/ocaml/site-lib"|' \
             "${OCAMLFIND_CONF}"
     if ! grep -q '^ldconf=' "${OCAMLFIND_CONF}"; then
